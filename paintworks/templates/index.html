@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+  <!-- Carousel Start -->
+  <div class="container-fluid p-0 mb-5">
+    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">{% load static %}
+          <img class="w-100" src="{% static 'img/carrusel_1.jpg' %}" alt="Image">
+          <div class="carousel-caption d-flex align-items-center">
+            <div class="container">
+              <div class="row align-items-center justify-content-center justify-content-lg-start">
+                <div class="col-10 col-lg-7 text-center text-lg-start">
+                  <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Pintura Automotriz //
+                  </h6>
+                  <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Reparación de Pintura Certificada</h1>
+                  <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
+                      class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="w-100" src="{% static 'img/fotoarley2.jpg' %}" height="600px" alt="Image">
+          <div class="carousel-caption d-flex align-items-center">
+            <div class="container">
+              <div class="row align-items-center justify-content-center justify-content-lg-start">
+                <div class="col-10 col-lg-7 text-center text-lg-start">
+                  <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Polichado //
+                  </h6>
+                  <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Devuelve el brillo original a tu
+                    vehículo.</h1>
+                  <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
+                      class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="w-100" src="{% static 'img/fotoarley2.jpg' %}" height="600px" alt="Image">
+          <div class="carousel-caption d-flex align-items-center">
+            <div class="container">
+              <div class="row align-items-center justify-content-center justify-content-lg-start">
+                <div class="col-10 col-lg-7 text-center text-lg-start">
+                  <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Restauracion de Partes Plasticas //
+                  </h6>
+                  <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Reparación y renovación de plásticos.
+                  </h1>
+                  <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
+                      class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="w-100" src="{% static 'img/fotoarley2.jpg' %}" height="600px" alt="Image">
+          <div class="carousel-caption d-flex align-items-center">
+            <div class="container">
+              <div class="row align-items-center justify-content-center justify-content-lg-start">
+                <div class="col-10 col-lg-7 text-center text-lg-start">
+                  <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Restauracion de Rines //
+                  </h6>
+                  <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Recupera la estética de tus rines con
+                    servicios especializados.</h1>
+                  <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
+                      class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- Carousel End -->
+  <!-- Service Start -->
+  <div class="container-xxl service py-5">
+    <div class="container">
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h6 class="text-primary text-uppercase">// Nuestros Servicios //</h6>
+        <h1 class="mb-5">Explore Nuestros Servicios</h1>
+      </div>
+      <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="col-lg-4">
+          <div class="nav w-100 nav-pills me-4">
+            <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 active" data-bs-toggle="pill"
+              data-bs-target="#tab-pane-1" type="button">
+              <i class="fa fa-car-side fa-2x me-3"></i>
+              <h4 class="m-0">Enbellecimiento Automotriz</h4>
+            </button>
+            <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill"
+              data-bs-target="#tab-pane-2" type="button">
+              <i class="fa fa-car fa-2x me-3"></i>
+              <h4 class="m-0">Retoques puntuales de Pintura</h4>
+            </button>
+            <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill"
+              data-bs-target="#tab-pane-3" type="button">
+              <i class="fa fa-cog fa-2x me-3"></i>
+              <h4 class="m-0">Pintura y Restauracion de Rines</h4>
+            </button>
+            <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill"
+              data-bs-target="#tab-pane-4" type="button">
+              <i class="fa fa-oil-can fa-2x me-3"></i>
+              <h4 class="m-0">Restauracion de Partes Plasticas</h4>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="tab-content w-100">
+            <div class="tab-pane fade show active" id="tab-pane-1">
+              <div class="row g-4">
+                <div class="col-md-6" style="min-height: 350px;">
+                  <div class="position-relative h-100">
+                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/embellecimiento.jpg' %}"
+                      style="object-fit: cover;" alt="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="mb-3">Embellecimiento Automotriz</h3>
+                  <p class="mb-4" style=text-align:justify> El embellecimiento automotriz incluye servicios diseñados
+                    para mantener y realzar la
+                    apariencia de tu vehículo, dejándolo impecable por dentro y por fuera. Desde pulidos hasta encerados
+                    y detalles interiores, este servicio es ideal para prolongar la estética y el valor de tu auto.</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Acabado Impecable</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Protección Duradera</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Valor Agregado</p>
+                  <a href="" class="btn btn-primary py-3 px-5 mt-3">Mas Información<i
+                      class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab-pane-2">
+              <div class="row g-4">
+                <div class="col-md-6" style="min-height: 350px;">
+                  <div class="position-relative h-100">
+                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/retoques_pintura.jpg' %}"
+                      style="object-fit: cover;" alt="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="mb-3">Retoques Puntuales de Pintura</h3>
+                  <p class="mb-4" style=text-align:justify>Este servicio es ideal para corregir pequeñas imperfecciones
+                    en la pintura de tu auto,
+                    como rayones, marcas leves o desgastes, igualando el color original para un acabado uniforme.</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Rapidez</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Ahorro Económico</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Acabado Natural</p>
+                  <a href="" class="btn btn-primary py-3 px-5 mt-3">Mas Información<i
+                      class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab-pane-3">
+              <div class="row g-4">
+                <div class="col-md-6" style="min-height: 350px;">
+                  <div class="position-relative h-100">
+                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/restauracion_rines.jpeg' %}"
+                      style="object-fit: cover;" alt="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="mb-3">Pintura y Restauración de Rines</h3>
+                  <p class="mb-4" style=text-align:justify>Recupera el brillo y la estética de tus rines con servicios
+                    especializados en pintura
+                    y reparación de rayones, oxidación o desgaste. Ideal para mantener un look moderno y elegante.</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Estética Renovada</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Durabilidad</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Personalización</p>
+                  <a href="" class="btn btn-primary py-3 px-5 mt-3">Mas Información<i
+                      class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab-pane-4">
+              <div class="row g-4">
+                <div class="col-md-6" style="min-height: 350px;">
+                  <div class="position-relative h-100">
+                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/restauracion_tapas_plasticas.jpg' %}"
+                      style="object-fit: cover;" alt="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="mb-3">Restauración de Partes Plásticas</h3>
+                  <p class="mb-4">Reparación y renovación de plásticos exteriores e interiores del auto, eliminando
+                    rayones, grietas o decoloración para que luzcan como nuevos.</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Apariencia Uniforme</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Reutilización Sostenible</p>
+                  <p><i class="fa fa-check text-success me-3"></i>Cuidado Profesional</p>
+                  <a href="" class="btn btn-primary py-3 px-5 mt-3">Mas Información<i
+                      class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Service End -->
+
+
+  <!-- Booking Start -->
+  <div class="container-fluid bg-secondary booking my-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+      <div class="row gx-5">
+        <div class="col-lg-6 py-5">
+          <div class="py-5">
+            <h1 class="text-white mb-4">Reconocidos como el taller líder en latonería y pintura automotriz en nuestra
+              región.</h1>
+            <p class="text-white mb-0" style=text-align:justify>Ofrecemos los servicios de latonería y pintura
+              automotriz de alta calidad,
+              restaurando la apariencia
+              y funcionalidad de los vehículos con precisión y profesionalismo. Nos comprometemos a brindar soluciones
+              rápidas, duraderas y personalizadas, asegurando la satisfacción total de nuestros clientes.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn"
+            data-wow-delay="0.6s">
+            <h1 class="text-white mb-4">Solicita Nuestros Servicios</h1>
+            <form>
+              <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                  <input type="text" class="form-control border-0" placeholder="Nombre" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="email" class="form-control border-0" placeholder="Correo Electrónico"
+                    style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <select class="form-select border-0" style="height: 55px;">
+                    <option selected>Selecione el Servicio</option>
+                    <option value="1">Polichado y Encerado</option>
+                    <option value="2">Reparacion Golpes o Rayones</option>
+                    <option value="3">Pintura General</option>
+                  </select>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="date" id="date1" data-target-input="nearest">
+                    <input type="text" class="form-control border-0 datetimepicker-input"
+                      placeholder="Fecha del Servicio" data-target="#date1" data-toggle="datetimepicker"
+                      style="height: 55px;">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control border-0" placeholder="Informacion Adicional"></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-secondary w-100 py-3" type="submit">Solicitar Servicio</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Booking End -->
+  <!-- Testimonial Start -->
+  <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+      <div class="text-center">
+        <h6 class="text-primary text-uppercase">// Testimonios //</h6>
+        <h1 class="mb-5">Nuestros Clientes!</h1>
+      </div>
+      <div class="owl-carousel testimonial-carousel position-relative">
+        <div class="testimonial-item text-center">
+          <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-1.jpg' %}"
+            style="width: 80px; height: 80px;">
+          <h5 class="mb-0">Claudia Polo</h5>
+          <p>Comerciante</p>
+          <div class="testimonial-text bg-light text-center p-4">
+            <p class="mb-0" style=text-align:justify> "Mi camioneta tenía un golpe considerable, pero el equipo del
+              taller hizo un trabajo
+              impecable. No solo arreglaron la abolladura, sino que dejaron la pintura perfectamente igualada. Excelente
+              servicio y atención al cliente."</p>
+          </div>
+        </div>
+        <div class="testimonial-item text-center">
+          <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-2.jpg' %}"
+            style="width: 80px; height: 80px;">
+          <h5 class="mb-0">Jesús Delgado</h5>
+          <p>Profession</p>
+          <div class="testimonial-text bg-light text-center p-4">
+            <p class="mb-0" style=text-align:justify> "Quedé impresionado con el trabajo que realizaron en mi auto. El
+              acabado de la pintura fue perfecto, parecía recién salido de la agencia. Además, me entregaron el vehículo
+              antes del tiempo
+              prometido. ¡Los recomiendo 100%!"</p>
+          </div>
+        </div>
+        <div class="testimonial-item text-center">
+          <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-3.jpg' %}"
+            style="width: 80px; height: 80px;">
+          <h5 class="mb-0">Oscar Fajardo</h5>
+          <p>Profession</p>
+          <div class="testimonial-text bg-light text-center p-4">
+            <p class="mb-0" style=text-align:justify> "Después de un accidente, pensé que mi coche nunca volvería a
+              verse igual. Pero el equipo
+              del taller superó mis expectativas. No solo lo dejaron como nuevo, sino que se encargaron de cada detalle.
+              ¡Son los mejores!"</p>
+          </div>
+        </div>
+        <div class="testimonial-item text-center">
+          <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-4.jpg' %}"
+            style="width: 80px; height: 80px;">
+          <h5 class="mb-0">Laura Reina</h5>
+          <p>Profession</p>
+          <div class="testimonial-text bg-light text-center p-4">
+            <p class="mb-0" style=text-align:justify> "La calidad del trabajo es increíble. Me explicaron todo el
+              proceso con paciencia y
+              profesionalismo. Mi auto no solo quedó como nuevo, sino que lo entregaron limpio y a tiempo. Estoy muy
+              satisfecha con el servicio."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Testimonial End -->
+</body>
+{% endblock %}
