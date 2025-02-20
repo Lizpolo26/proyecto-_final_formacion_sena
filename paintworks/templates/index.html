@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Inicio</title>  
+</head>
+
 {% extends 'base.html' %}
 {% block content %}
 <body>
@@ -102,12 +110,12 @@
             <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill"
               data-bs-target="#tab-pane-2" type="button">
               <i class="fa fa-car fa-2x me-3"></i>
-              <h4 class="m-0">Retoques puntuales de Pintura</h4>
+              <h4 class="m-0">Retoques de Pintura</h4>
             </button>
             <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill"
               data-bs-target="#tab-pane-3" type="button">
               <i class="fa fa-cog fa-2x me-3"></i>
-              <h4 class="m-0">Pintura y Restauracion de Rines</h4>
+              <h4 class="m-0">Restauracion de Rines</h4>
             </button>
             <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill"
               data-bs-target="#tab-pane-4" type="button">
@@ -127,7 +135,7 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="mb-3">Embellecimiento Automotriz</h3>
+                  <h3 class="mb-3" style="color: #D81324;">Embellecimiento Automotriz</h3>
                   <p class="mb-4" style=text-align:justify> El embellecimiento automotriz incluye servicios diseñados
                     para mantener y realzar la
                     apariencia de tu vehículo, dejándolo impecable por dentro y por fuera. Desde pulidos hasta encerados
@@ -149,7 +157,7 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="mb-3">Retoques Puntuales de Pintura</h3>
+                  <h3 class="mb-3" style="color: #D81324;">Retoques Puntuales de Pintura</h3>
                   <p class="mb-4" style=text-align:justify>Este servicio es ideal para corregir pequeñas imperfecciones
                     en la pintura de tu auto,
                     como rayones, marcas leves o desgastes, igualando el color original para un acabado uniforme.</p>
@@ -170,7 +178,7 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="mb-3">Pintura y Restauración de Rines</h3>
+                  <h3 class="mb-3" style="color: #D81324;">Pintura y Restauración de Rines</h3>
                   <p class="mb-4" style=text-align:justify>Recupera el brillo y la estética de tus rines con servicios
                     especializados en pintura
                     y reparación de rayones, oxidación o desgaste. Ideal para mantener un look moderno y elegante.</p>
@@ -191,7 +199,7 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="mb-3">Restauración de Partes Plásticas</h3>
+                  <h3 class="mb-3" style="color: #D81324;">Restauración de Partes Plásticas</h3>
                   <p class="mb-4">Reparación y renovación de plásticos exteriores e interiores del auto, eliminando
                     rayones, grietas o decoloración para que luzcan como nuevos.</p>
                   <p><i class="fa fa-check text-success me-3"></i>Apariencia Uniforme</p>
@@ -327,5 +335,24 @@
     </div>
   </div>
   <!-- Testimonial End -->
+       <!-- Back to Top -->
+       <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+       <!-- JavaScript Libraries -->
+       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+       <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+       <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+       <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+       <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+       <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+       <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+       <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+       <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+   
+       <!-- Template Javascript -->
+       <script src="{% static 'js/main.js' %}"></script>
 </body>
 {% endblock %}
+</html>

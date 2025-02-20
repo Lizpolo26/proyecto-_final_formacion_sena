@@ -24,7 +24,7 @@
   <!-- Libraries Stylesheet -->
   <link href="lib/animate/animate.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
 
   <!-- Customized Bootstrap Stylesheet -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,131 +33,144 @@
   <link href="css/style.css" rel="stylesheet">
 </head>
 
+{% extends 'base.html' %}
+{% block content %}
 <body>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#header").load("header.html");
-      $("#footer").load("footer.html");
-    });
-  </script>
-  <div id="header"></div>
   <!-- Page Header Start -->
-  <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-bg-1.jpg);">
+  {% load static %}
+  <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'img/carousel-bg-1.jpg' %});">
     <div class="container-fluid page-header-inner py-5">
       <div class="container text-center">
         <h1 class="display-3 text-white mb-3 animated slideInDown">Nosotros</h1>
+  
         
-        </div>
-        <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-          <i class="fa fa-users-cog fa-2x text-white mb-3"></i>
-          <h2 class="text-white mb-2" data-toggle="counter-up">4</h2>
-          <p class="text-white mb-0">Tecnicos Expertos</p>
-        </div>
-        <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-          <i class="fa fa-users fa-2x text-white mb-3"></i>
-          <h2 class="text-white mb-2" data-toggle="counter-up">254</h2>
-          <p class="text-white mb-0">Clientes Satisfechos</p>
-        </div>
-        <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-          <i class="fa fa-car fa-2x text-white mb-3"></i>
-          <h2 class="text-white mb-2" data-toggle="counter-up">1350</h2>
-          <p class="text-white mb-0">Proyectos Terminados</p>
-        </div>
+
       </div>
     </div>
-  </div> -->
+  </div> 
   <!-- Fact End -->
+
+   <!-- Service Start -->
+   <div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="d-flex py-5 px-4">
+                    <i class="fa fa-certificate fa-3x text-primary flex-shrink-0"></i>
+                    <div class="ps-4">
+                        <h5 class="mb-3" style="color: #c81322;">Servicio de Calidad</h5>
+                        <p style="text-align: justify;">Nuestro equipo de trabajo esta comprometidos en cuidar cada detalles, desdde la reparación de pequeñas
+                          abolladuras hasta la restauración completa de la pintura, asegurando un acabado impecable y duradero.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="d-flex bg-light py-5 px-4">
+                    <i class="fa fa-users-cog fa-3x text-primary flex-shrink-0"></i>
+                    <div class="ps-4">
+                        <h5 class="mb-3" style="color: #c81322;">Trabajadores Expertos</h5>
+                        <p style="text-align: justify;">Nuestro personal no solo domina las tecnicas más avanzadas del sector, sino que tambien se dedica con pasión a cada Proyecto, asegurando resultados impecables y personalizados para cada cliente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="d-flex py-5 px-4">
+                    <i class="fa fa-tools fa-3x text-primary flex-shrink-0"></i>
+                    <div class="ps-4">
+                        <h5 class="mb-3" style="color: #c81322;">Equipo Moderno</h5>
+                        <p style="text-align: justify;">Nuestro taller esta equipado con tecnologia avanzada, diseñada para realizar reparaciones y aplicaciones de pintura con la máxima calidad. Esto nos permite atender desde pequeños detalles hasta trabajos mas complejos siempre con resultados impecables. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+  
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 pt-4" style="min-height: 400px;">
+                <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s">
+                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/about.jpg' %}" style="object-fit: cover;"
+                        alt="">
+                    <div class="position-absolute top-0 end-0 mt-n4 me-n4 py-4 px-5"
+                        style="background: rgba(0, 0, 0, .08);">
+                        <h1 class="display-4 text-white mb-0">10 <span class="fs-4">Años</span></h1>
+                        <h4 class="text-white">Experiencia</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="mb-4"><span class="text-primary">MISION</span></h1>
+                <p class="mb-4">Ofrecer servicios de latonería y pintura automotriz de alta calidad, restaurando la
+                    apariencia
+                    y funcionalidad de los vehículos con precisión y profesionalismo. Nos comprometemos a brindar
+                    soluciones
+                    rápidas, duraderas y personalizadas, asegurando la satisfacción total de nuestros clientes.</p>
+                <br>
+                <h1 class="mb-4"><span class="text-primary">VISION</span></h1>
+                <p class="mb-4">Ser reconocidos como el taller líder en latonería y pintura automotriz en nuestra
+                    región,
+                    destacándonos por la excelencia en el servicio, el uso de tecnología de punta y un equipo altamente
+                    capacitado. Aspiramos a ser la primera opción para quienes buscan calidad y confianza en el cuidado
+                    de sus
+                    vehículos.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+    <!-- Fact Start -->
+    <div class="container-fluid fact bg-dark my-5 py-5">
+      <div class="container">
+          <div class="row g-4">
+              <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
+                  <i class="fa fa-check fa-2x text-white mb-3"></i>
+                  <h2 class="text-white mb-2" data-toggle="counter-up">10</h2>
+                  <p class="text-white mb-0">Años Experiencia</p>
+              </div>
+              <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
+                  <i class="fa fa-users-cog fa-2x text-white mb-3"></i>
+                  <h2 class="text-white mb-2" data-toggle="counter-up">1</h2>
+                  <p class="text-white mb-0">Experto</p>
+              </div>
+              <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
+                  <i class="fa fa-users fa-2x text-white mb-3"></i>
+                  <h2 class="text-white mb-2" data-toggle="counter-up">125</h2>
+                  <p class="text-white mb-0">Clientes satisfechos</p>
+              </div>
+              <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
+                  <i class="fa fa-car fa-2x text-white mb-3"></i>
+                  <h2 class="text-white mb-2" data-toggle="counter-up">150</h2>
+                  <p class="text-white mb-0">Proyectos completados</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Fact End -->
+
+
   <div class="container">
     <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
       <h6 class="text-primary text-uppercase">// Propietario //</h6>
       <h1 class="mb-5">Arley Perdomo</h1>
-      <video controls width="900">
-        <source src="https://youtu.be/etnrp5_iL8I" type="video/mp4">
+      <!-- <video controls width="900"> -->
+        <!-- <source src="https://youtu.be/etnrp5_iL8I?si=dmSwHXXrMPRG-1Qb" type="video/mp4">
         Tu navegador no soporta la reproducción de videos.
-      </video>
+      </video> -->
+      <iframe width="700" height="400" src="https://www.youtube.com/embed/etnrp5_iL8I?si=dmSwHXXrMPRG-1Qb" title="YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
 
 
-  <!-- Team Start -->
-  <!-- <div class="container-xxl py-5">
-    <div class="container">
-      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-        <h6 class="text-primary text-uppercase">// Our Technicians //</h6>
-        <h1 class="mb-5">Our Expert Technicians</h1>
-      </div>
-      <div class="row g-4">
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="team-item">
-            <div class="position-relative overflow-hidden">
-              <img class="img-fluid" src="img/team-1.jpg" alt="">
-              <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-            <div class="bg-light text-center p-4">
-              <h5 class="fw-bold mb-0">Full Name</h5>
-              <small>Designation</small>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-          <div class="team-item">
-            <div class="position-relative overflow-hidden">
-              <img class="img-fluid" src="img/team-2.jpg" alt="">
-              <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-            <div class="bg-light text-center p-4">
-              <h5 class="fw-bold mb-0">Full Name</h5>
-              <small>Designation</small>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-          <div class="team-item">
-            <div class="position-relative overflow-hidden">
-              <img class="img-fluid" src="img/team-3.jpg" alt="">
-              <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-            <div class="bg-light text-center p-4">
-              <h5 class="fw-bold mb-0">Full Name</h5>
-              <small>Designation</small>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-          <div class="team-item">
-            <div class="position-relative overflow-hidden">
-              <img class="img-fluid" src="img/team-4.jpg" alt="">
-              <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-            <div class="bg-light text-center p-4">
-              <h5 class="fw-bold mb-0">Full Name</h5>
-              <small>Designation</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- Team End -->
-  <div id="footer"></div>
+
+
+  
 </body>
+{% endblock %}
 
 </html>
