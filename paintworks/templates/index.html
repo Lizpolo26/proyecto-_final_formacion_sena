@@ -3,11 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Inicio</title>  
+  <title>Inicio</title>
 </head>
 
 {% extends 'base.html' %}
 {% block content %}
+
 <body>
   <!-- Carousel Start -->
   <div class="container-fluid p-0 mb-5">
@@ -22,7 +23,7 @@
                   <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Pintura Automotriz //
                   </h6>
                   <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Reparación de Pintura Certificada</h1>
-                  <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
+                  <a href="#mitad-pagina" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
                       class="fa fa-arrow-right ms-3"></i></a>
                 </div>
               </div>
@@ -39,7 +40,7 @@
                   </h6>
                   <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Devuelve el brillo original a tu
                     vehículo.</h1>
-                  <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
+                  <a href="#mitad-pagina" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
                       class="fa fa-arrow-right ms-3"></i></a>
                 </div>
               </div>
@@ -56,7 +57,7 @@
                   </h6>
                   <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Reparación y renovación de plásticos.
                   </h1>
-                  <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
+                  <a href="#mitad-pagina" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
                       class="fa fa-arrow-right ms-3"></i></a>
                 </div>
               </div>
@@ -73,7 +74,7 @@
                   </h6>
                   <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Recupera la estética de tus rines con
                     servicios especializados.</h1>
-                  <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
+                  <a href="#mitad-pagina" class="btn btn-primary py-3 px-5 animated slideInDown">Mas Infromación<i
                       class="fa fa-arrow-right ms-3"></i></a>
                 </div>
               </div>
@@ -94,7 +95,7 @@
   <!-- Carousel End -->
   <!-- Service Start -->
   <div class="container-xxl service py-5">
-    <div class="container">
+    <div id="mitad-pagina" class="container">
       <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
         <h6 class="text-primary text-uppercase">// Nuestros Servicios //</h6>
         <h1 class="mb-5">Explore Nuestros Servicios</h1>
@@ -143,7 +144,7 @@
                   <p><i class="fa fa-check text-success me-3"></i>Acabado Impecable</p>
                   <p><i class="fa fa-check text-success me-3"></i>Protección Duradera</p>
                   <p><i class="fa fa-check text-success me-3"></i>Valor Agregado</p>
-                  <a href="" class="btn btn-primary py-3 px-5 mt-3">Mas Información<i
+                  <a href="#final-pagina" class="btn btn-primary py-3 px-5 mt-3">Reservar<i
                       class="fa fa-arrow-right ms-3"></i></a>
                 </div>
               </div>
@@ -164,7 +165,7 @@
                   <p><i class="fa fa-check text-success me-3"></i>Rapidez</p>
                   <p><i class="fa fa-check text-success me-3"></i>Ahorro Económico</p>
                   <p><i class="fa fa-check text-success me-3"></i>Acabado Natural</p>
-                  <a href="" class="btn btn-primary py-3 px-5 mt-3">Mas Información<i
+                  <a href="#final-pagina" class="btn btn-primary py-3 px-5 mt-3">Reservar<i
                       class="fa fa-arrow-right ms-3"></i></a>
                 </div>
               </div>
@@ -173,8 +174,8 @@
               <div class="row g-4">
                 <div class="col-md-6" style="min-height: 350px;">
                   <div class="position-relative h-100">
-                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/restauracion_rines.jpeg' %}"
-                      style="object-fit: cover;" alt="">
+                    <img class="position-absolute img-fluid w-100 h-100"
+                      src="{% static 'img/restauracion_rines.jpeg' %}" style="object-fit: cover;" alt="">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -185,7 +186,7 @@
                   <p><i class="fa fa-check text-success me-3"></i>Estética Renovada</p>
                   <p><i class="fa fa-check text-success me-3"></i>Durabilidad</p>
                   <p><i class="fa fa-check text-success me-3"></i>Personalización</p>
-                  <a href="" class="btn btn-primary py-3 px-5 mt-3">Mas Información<i
+                  <a href="#final-pagina" class="btn btn-primary py-3 px-5 mt-3">Reservar<i
                       class="fa fa-arrow-right ms-3"></i></a>
                 </div>
               </div>
@@ -194,8 +195,8 @@
               <div class="row g-4">
                 <div class="col-md-6" style="min-height: 350px;">
                   <div class="position-relative h-100">
-                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/restauracion_tapas_plasticas.jpg' %}"
-                      style="object-fit: cover;" alt="">
+                    <img class="position-absolute img-fluid w-100 h-100"
+                      src="{% static 'img/restauracion_tapas_plasticas.jpg' %}" style="object-fit: cover;" alt="">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -205,8 +206,7 @@
                   <p><i class="fa fa-check text-success me-3"></i>Apariencia Uniforme</p>
                   <p><i class="fa fa-check text-success me-3"></i>Reutilización Sostenible</p>
                   <p><i class="fa fa-check text-success me-3"></i>Cuidado Profesional</p>
-                  <a href="" class="btn btn-primary py-3 px-5 mt-3">Mas Información<i
-                      class="fa fa-arrow-right ms-3"></i></a>
+                  <a href="#final-pagina" class="btn btn-primary py-3 px-5 mt-3">Reservar<i class="fa fa-arrow-right ms-3"></i></a>
                 </div>
               </div>
             </div>
@@ -233,7 +233,7 @@
               rápidas, duraderas y personalizadas, asegurando la satisfacción total de nuestros clientes.</p>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div id="final-pagina" class="col-lg-6">
           <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn"
             data-wow-delay="0.6s">
             <h1 class="text-white mb-4">Solicita Nuestros Servicios</h1>
@@ -335,24 +335,25 @@
     </div>
   </div>
   <!-- Testimonial End -->
-       <!-- Back to Top -->
-       <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
-       <!-- JavaScript Libraries -->
-       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-       <script src="{% static 'lib/wow/wow.min.js' %}"></script>
-       <script src="{% static 'lib/easing/easing.min.js' %}"></script>
-       <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
-       <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
-       <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
-       <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
-       <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
-       <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
-   
-       <!-- Template Javascript -->
-       <script src="{% static 'js/main.js' %}"></script>
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+  <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+  <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+  <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+  <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+  <!-- Template Javascript -->
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 {% endblock %}
+
 </html>

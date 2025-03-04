@@ -34,6 +34,7 @@
 </head>
 {% extends 'base.html' %}
 {% block content %}
+
 <body>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -47,10 +48,11 @@
 
 
   <!-- Page Header Start -->{% load static %}
-  <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'img/carousel-bg-1.jpg' %});">
+  <div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url({% static 'img/carousel-bg-1.jpg' %});">
     <div class="container-fluid page-header-inner py-5">
       <div class="container text-center">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">Contáctenos</h1>
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Contáctanos</h1>
       </div>
     </div>
   </div>
@@ -58,10 +60,10 @@
 
 
   <!-- Contact Start -->
-  <div class="container-xxl py-5">
+  <div id="formulario-contacto" class="container-xxl py-5">
     <div class="container">
-      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">      
-        <h1 class="mb-5"  style="color: rgb(190, 0, 0);">Contacto para Cualquier Consulta</h1>
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h1 class="mb-5" style="color: rgb(190, 0, 0);">Contacto para Cualquier Consulta</h1>
       </div>
       <div class="row g-4">
         <div class="col-12">
@@ -69,7 +71,8 @@
             <div class="col-md-4">
               <div class="bg-light d-flex flex-column justify-content-center p-4">
                 <h5 class="text-uppercase">// Whatsapp //</h5>
-                <p class="m-0"><a class="border-bottom" href="https://wa.me/3229037967"><i class="bi bi-whatsapp text-primary me-2"></i>Escribeme</a></p>
+                <p class="m-0"><a class="border-bottom" href="https://wa.me/3229037967"><i
+                      class="bi bi-whatsapp text-primary me-2"></i>Escribeme</a></p>
               </div>
             </div>
             <div class="col-md-4">
@@ -81,7 +84,8 @@
             <div class="col-md-4">
               <div class="bg-light d-flex flex-column justify-content-center p-4">
                 <h5 class="text-uppercase">// Faccebok //</h5>
-                <p class="m-0"><a class="border-bottom" href="https://www.facebook.com/reel/859181199482605"><i class="bi bi-facebook text-primary me-2"></i>Arley Perdomo</a></p>
+                <p class="m-0"><a class="border-bottom" href="https://www.facebook.com/reel/859181199482605"><i
+                      class="bi bi-facebook text-primary me-2"></i>Arley Perdomo</a></p>
               </div>
             </div>
           </div>
@@ -96,37 +100,48 @@
           <div class="wow fadeInUp" data-wow-delay="0.2s">
             <p class="mb-4">Si necesitas una cotización o deseas realizar una solicitud, puedes hacerlo
               fácilmente a través de este formulario. Estamos aquí para ayudarte.</p>
-            <form>
+
+              {% if messages %}
+              <div class="messages">
+                {% for message in messages %}
+                  <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+            
+            <form method="POST" action="{% url 'enviar_correo' %}">
+              {% csrf_token %}
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="name" placeholder="Tu Nombre">
-                    <label for="name">Tu Nombre</label>
+                    <input type="text" class="form-control" required id="nombre" name="nombre" placeholder="Tu Nombre">
+                    <label for="nombre">Nombre</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="num" placeholder="Tu Número">
-                    <label for="num">Tu Número</label>
+                    <input type="text" class="form-control" required id="telefono" name="telefono" placeholder="Tu Número" pattern="[0-9]+">
+                    <label for="telefono">telefono</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="email" class="form-control" id="email" placeholder="Tu Correo">
-                    <label for="email">Tu Correo</label>
+                    <input type="email" class="form-control" required id="correo" name="correo" placeholder="Tu Correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <label for="correo">Correo</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="Asunto" placeholder="Asunto">
-                    <label for="Asunto">Asunto</label>
+                    <input type="text" class="form-control" required id="asunto" name="asunto" placeholder="Asunto">
+                    <label for="asunto">Asunto</label>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-floating">
-                    <textarea class="form-control" placeholder="Deja un mensaje aquí" id="Mensaje"
-                      style="height: 100px"></textarea>
-                    <label for="Mensaje">Mensaje</label>
+                    <textarea class="form-control" required placeholder="Deja un mensaje aquí" id="mensaje" name="mensaje" style="height: 100px"></textarea>
+                    <label for="mensaje">Mensaje</label>
                   </div>
                 </div>
                 <div class="col-12">
@@ -143,4 +158,5 @@
   <div id="footer"></div>
 </body>
 {% endblock %}
+
 </html>

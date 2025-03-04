@@ -22,8 +22,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='base'),
     path('index/', views.index, name='index'),
+    path('servicios/', views.servicios, name='servicios'),
     path('nosotros/', views.nosotros, name='nosotros'),
-    path('contactanos/', views.contactanos, name='contactanos'),
+    path('contactanos/', views.contactanos, name='contactanos'),  # Página de contacto
+    path('enviar-correo/', views.enviar_correo, name='enviar_correo'),  # Nueva URL para enviar el correo
     path('ingreso/', views.ingreso, name='ingreso'),
     path('registro/', views.registro, name='registro'),
+    path('restablecer/', views.restablecer, name='restablecer'),
+    path('cambiar_contrasena/<uidb64>/<token>/', views.cambiar_contrasena, name='cambiar_contrasena'),
+    path('confirmacion_contrasena/', views.confirmacion_contrasena, name='confirmacion_contrasena'),            
+    path('perfil/', views.perfil, name='perfil'),
+    path('logout/', views.cerrar_sesion, name='logout'),
 ]
+
+
