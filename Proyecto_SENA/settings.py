@@ -135,5 +135,3 @@ EMAIL_HOST_USER = 'lizreina0126@gmail.com'
 EMAIL_HOST_PASSWORD = 'usii ddng xvcz wckn'
 DEFAULT_AUTO_FIELD = EMAIL_HOST_USER
 
-import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
