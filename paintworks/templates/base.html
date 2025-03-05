@@ -43,14 +43,14 @@
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="{ % url 'index' % }" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-                <img src="{% static 'img/logo_largo.png' %}" alt="350px" width="240px" srcset="Logo Principal">
+                <img src="{% static 'img/logo_largo.png' %}" alt="400px" width="260px" srcset="Logo Principal">
             </a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="{% url 'index' %}" class="nav-item nav-link">Inicio</a>
-                    <a href="{% url 'servicios' %}" class="nav-item nav-link">Servicios</a>
-                    <a href="{% url 'nosotros' %}" class="nav-item nav-link">Sobre nosotros</a>
-                    <a href="{% url 'contactanos' %}" class="nav-item nav-link">Contactanos</a>
+                <div class="navbar-nav ms-auto p-4 p-lg-1">
+                    <a style="text-transform: capitalize;" href="{% url 'index' %}" class="nav-item nav-link">Inicio</a>
+                    <a style="text-transform: capitalize;" href="{% url 'servicios' %}" class="nav-item nav-link">Servicios</a>
+                    <a style="text-transform: capitalize;" href="{% url 'nosotros' %}" class="nav-item nav-link">Sobre nosotros</a>
+                    <a style="text-transform: capitalize;" href="{% url 'contactanos' %}" class="nav-item nav-link">Contactanos</a>
 
                     {% if user.is_authenticated %}
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"

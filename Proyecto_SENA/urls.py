@@ -33,6 +33,8 @@ urlpatterns = [
     path('confirmacion_contrasena/', views.confirmacion_contrasena, name='confirmacion_contrasena'),            
     path('perfil/', views.perfil, name='perfil'),
     path('logout/', views.cerrar_sesion, name='logout'),
+    path('pasarela/', views.pasarela, name='pasarela'), 
+    path('confirmac/<int:orden_id>/', views.confirmacion, name='confirmar'), 
 ]
 
 
