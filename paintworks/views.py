@@ -187,3 +187,7 @@ def cerrar_sesion(request):
 def perfil(request):
     return render(request, 'perfil.html', {'user': request.user})
 
+
+def servicios(request):
+    rango_imagenes = range(1, 5)  # Genera una lista del 1 al 6
+    return render(request, 'servicios.html', {'rango_imagenes': rango_imagenes})

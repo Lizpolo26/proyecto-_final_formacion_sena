@@ -1,101 +1,112 @@
+{% extends 'base.html' %}
+{% load static %} 
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
     <title>Servicios</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
 
-      <!-- Favicon -->
-  <link href="img/Captura de pantalla 2024-10-22 18251234567mj.PNG" rel="icon">
+    <!-- Hoja de estilos personalizada -->
+    <link rel="stylesheet" href="{% static 'servicios.css' %}">
 
-  <!-- Google Web Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap"
-    rel="stylesheet">
-
-  <!-- Icon Font Stylesheet -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Libraries Stylesheet -->
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
-
-  <!-- Customized Bootstrap Stylesheet -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Template Stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
-
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-{% extends 'base.html' %}
+
 {% block content %}
 <body>
-    {% load static %}
-    <!-- Service Start -->
     <div class="container-xxl service py-5">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <!-- Sección: Trabajos Realizados (sin imágenes) -->
+            <div class="text-center mb-5">
                 <h6 class="text-primary text-uppercase">// Nuestros Servicios //</h6>
-                <h1 class="mb-5">Trabajos realizados</h1>
+                <h1>Trabajos Realizados</h1>
             </div>
-            <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
-             
-                <div class="col-lg-8">
-                    <div class="tab-content w-100">
-                        <div class="tab-pane fade show active" id="tab-pane-1">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/service-1.jpg' %}"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-3">15 Years Of Experience In Auto Servicing</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Quality Servicing</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Expert Workers</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Modern Equipment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-8">
-                    <div class="tab-content w-100">
-                        <div class="tab-pane fade show active" id="tab-pane-1">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/service-1.jpg' %}"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-3">15 Years Of Experience In Auto Servicing</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Quality Servicing</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Expert Workers</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Modern Equipment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mb-4">
+                <h3>15 Años de Experiencia en Servicios Automotrices</h3>
+                <p>Ofrecemos servicios de calidad con un equipo altamente capacitado para satisfacer todas tus necesidades automotrices.</p>
             </div>
         </div>
     </div>
-    <!-- Service End -->
+    
+    <!-- Sección 1 -->
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Mantenimiento Profesional</h2>
+        <div class="text-center mb-4">
+            <h3>Expertos en Mantenimiento Preventivo y Correctivo</h3>
+            <p>Brindamos soluciones rápidas y efectivas para garantizar la seguridad y el rendimiento óptimo de tu vehículo.</p>
+            <div class="row g-4 justify-content-center">
+                {% for i in rango_imagenes %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="image-container">
+                            <img class="img-fluid" src="{% static 'img/service-' %}{{ i }}.jpg" alt="Imagen de servicio {{ i }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección 2 -->
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Diagnóstico Avanzado</h2>
+        <div class="text-center mb-4">
+            <h3>Tecnología de Punta para un Diagnóstico Preciso</h3>
+            <p>Utilizamos herramientas modernas para detectar fallas y realizar reparaciones precisas y eficientes.</p>
+            <div class="row g-4 justify-content-center">
+                {% for i in rango_imagenes %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="image-container">
+                            <img class="img-fluid" src="{% static 'img/service-' %}{{ i }}.jpg" alt="Imagen de servicio {{ i }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección 3 -->
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Reparaciones Especializadas</h2>
+        <div class="text-center mb-4">
+            <h3>Soluciones Eficientes para Cualquier Problema Automotriz</h3>
+            <p>Contamos con profesionales capacitados para realizar reparaciones complejas y garantizar tu satisfacción.</p>
+            <div class="row g-4 justify-content-center">
+                {% for i in rango_imagenes %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="image-container">
+                            <img class="img-fluid" src="{% static 'img/service-' %}{{ i }}.jpg" alt="Imagen de servicio {{ i }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
+        <!-- Sección 4 -->
+        <div class="container py-5">
+            <h2 class="text-center mb-4">Reparaciones Especializadas</h2>
+            <div class="text-center mb-4">
+                <h3>Soluciones Eficientes para Cualquier Problema Automotriz</h3>
+                <p>Contamos con profesionales capacitados para realizar reparaciones complejas y garantizar tu satisfacción.</p>
+                <div class="row g-4 justify-content-center">
+                    {% for i in rango_imagenes %}
+                        <div class="col-md-3 col-sm-6">
+                            <div class="image-container">
+                                <img class="img-fluid" src="{% static 'img/service-' %}{{ i }}.jpg" alt="Imagen de servicio {{ i }}">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 {% endblock %}
 </html>
+
+

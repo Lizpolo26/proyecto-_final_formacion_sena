@@ -9,14 +9,15 @@
 </head>
 <body>
     <main>
-        <!-- Muestra los mensajes de error -->
-            {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                <p style="color: red;">{{ message }}</p>
-                {% endfor %}
-            </div>
-            {% endif %}      
+        <!-- Muestra los mensajes con colores según su tipo -->
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p class="message {{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}      
+
         {% block content %}
         <form method="post" action="{% url 'ingreso' %}">
             {% csrf_token %}
@@ -34,3 +35,4 @@
     </main>
 </body>
 </html>
+

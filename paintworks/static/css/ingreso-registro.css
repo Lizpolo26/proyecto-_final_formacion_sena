@@ -67,10 +67,47 @@ a:hover {
 }
 
 /* Estilos para mensajes de error */
-.messages p {
+/* .messages p {
     color: red;
     font-size: 14px;
     background: #ffe6e6;
     padding: 10px;
     border-radius: 5px;
+} */
+
+/* Estilos para los mensajes */
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
 }
+
+/* Mensaje de éxito en verde */
+.message.success {
+    color: green;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+/* Mensaje de error en rojo */
+.message.error {
+    color: red;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+/* Mensaje de advertencia en amarillo */
+.message.warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+}
+
+/* Mensaje de información en azul */
+.message.info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+}
+
