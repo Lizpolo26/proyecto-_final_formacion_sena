@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-{% load static %} 
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <title>Servicios</title>
@@ -16,6 +17,7 @@
 </head>
 
 {% block content %}
+
 <body>
     <div class="container-xxl service py-5">
         <div class="container">
@@ -24,89 +26,157 @@
                 <h6 class="text-primary text-uppercase">// Nuestros Servicios //</h6>
                 <h1>Trabajos Realizados</h1>
             </div>
-            <div class="text-center mb-4">
-                <h3>15 Años de Experiencia en Servicios Automotrices</h3>
-                <p>Ofrecemos servicios de calidad con un equipo altamente capacitado para satisfacer todas tus necesidades automotrices.</p>
-            </div>
         </div>
-    </div>
-    
-    <!-- Sección 1 -->
-    <div class="container py-5">
-        <h2 class="text-center mb-4">Mantenimiento Profesional</h2>
-        <div class="text-center mb-4">
-            <h3>Expertos en Mantenimiento Preventivo y Correctivo</h3>
-            <p>Brindamos soluciones rápidas y efectivas para garantizar la seguridad y el rendimiento óptimo de tu vehículo.</p>
-            <div class="row g-4 justify-content-center">
-                {% for i in rango_imagenes %}
-                    <div class="col-md-3 col-sm-6">
-                        <div class="image-container">
-                            <img class="img-fluid" src="{% static 'img/service-' %}{{ i }}.jpg" alt="Imagen de servicio {{ i }}">
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    
-    <!-- Sección 2 -->
-    <div class="container py-5">
-        <h2 class="text-center mb-4">Diagnóstico Avanzado</h2>
-        <div class="text-center mb-4">
-            <h3>Tecnología de Punta para un Diagnóstico Preciso</h3>
-            <p>Utilizamos herramientas modernas para detectar fallas y realizar reparaciones precisas y eficientes.</p>
-            <div class="row g-4 justify-content-center">
-                {% for i in rango_imagenes %}
-                    <div class="col-md-3 col-sm-6">
-                        <div class="image-container">
-                            <img class="img-fluid" src="{% static 'img/service-' %}{{ i }}.jpg" alt="Imagen de servicio {{ i }}">
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    
-    <!-- Sección 3 -->
-    <div class="container py-5">
-        <h2 class="text-center mb-4">Reparaciones Especializadas</h2>
-        <div class="text-center mb-4">
-            <h3>Soluciones Eficientes para Cualquier Problema Automotriz</h3>
-            <p>Contamos con profesionales capacitados para realizar reparaciones complejas y garantizar tu satisfacción.</p>
-            <div class="row g-4 justify-content-center">
-                {% for i in rango_imagenes %}
-                    <div class="col-md-3 col-sm-6">
-                        <div class="image-container">
-                            <img class="img-fluid" src="{% static 'img/service-' %}{{ i }}.jpg" alt="Imagen de servicio {{ i }}">
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
 
-        <!-- Sección 4 -->
-        <div class="container py-5">
-            <h2 class="text-center mb-4">Reparaciones Especializadas</h2>
-            <div class="text-center mb-4">
-                <h3>Soluciones Eficientes para Cualquier Problema Automotriz</h3>
-                <p>Contamos con profesionales capacitados para realizar reparaciones complejas y garantizar tu satisfacción.</p>
-                <div class="row g-4 justify-content-center">
-                    {% for i in rango_imagenes %}
-                        <div class="col-md-3 col-sm-6">
-                            <div class="image-container">
-                                <img class="img-fluid" src="{% static 'img/service-' %}{{ i }}.jpg" alt="Imagen de servicio {{ i }}">
-                            </div>
-                        </div>
-                    {% endfor %}
+<!-- Sección 1: Embellecimiento Automotriz -->
+<div class="container py-5">
+    <h2 class="text-center text-primary mb-4">Embellecimiento Automotriz</h2>
+    <div class="text-center mb-4">
+        <h3>¿Quieres que tu vehículo luzca como nuevo?</h3>
+        <p>Nuestro servicio de <strong>Embellecimiento Automotriz</strong> está diseñado para realzar y proteger la apariencia de tu auto, tanto por fuera como por dentro.</p>
+        
+        <!-- Galería de imágenes -->
+        <div class="row g-4 justify-content-center">
+            <!-- Imagen 1 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/img-enbelleci-1.jpg' %}" alt="Embellecimiento 1">
+                </div>
+            </div>
+            <!-- Imagen 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/img-enbelleci-2.jpg' %}" alt="Embellecimiento 2">
+                </div>
+            </div>
+            <!-- Imagen 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/img-enbelleci-3.jpg' %}" alt="Embellecimiento 3">
+                </div>
+            </div>
+            <!-- Imagen 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/img-enbelleci-4.jpg' %}" alt="Embellecimiento 4">
                 </div>
             </div>
         </div>
-    
+    </div>
+</div>
 
+<!-- Sección 2: Retoques Puntuales de Pintura -->
+<div class="container py-5">
+    <h2 class="text-center text-primary mb-4">Retoques Puntuales de Pintura</h2>
+    <div class="text-center mb-4">
+        <h3>Corrige pequeñas imperfecciones en tu auto</h3>
+        <p>Nuestro servicio de <strong>Retoques Puntuales de Pintura</strong> es ideal para eliminar rayones, marcas leves o desgastes, devolviendo un acabado uniforme y natural.</p>
+        
+        <!-- Galería de imágenes -->
+        <div class="row g-4 justify-content-center">
+            <!-- Imagen 1 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/retoques/img-retoques-1.png' %}" alt="Retoques 1">
+                </div>
+            </div>
+            <!-- Imagen 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/retoques/img-retoques-2.png' %}" alt="Retoques 2">
+                </div>
+            </div>
+            <!-- Imagen 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/retoques/img-retoques-3.png' %}" alt="Retoques 3">
+                </div>
+            </div>
+            <!-- Imagen 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/retoques/img-retoques-4.png' %}" alt="Retoques 4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sección 3: Pintura y Restauración de Rines -->
+<div class="container py-5">
+    <h2 class="text-center text-primary mb-4">Pintura y Restauración de Rines</h2>
+    <div class="text-center mb-4">
+        <h3>Recupera el brillo y la estética de tus rines</h3>
+        <p>Nuestro servicio de <strong>Pintura y Restauración de Rines</strong> elimina rayones, oxidación y desgaste, dejando tus rines como nuevos.</p>
+        
+        <!-- Galería de imágenes -->
+        <div class="row g-4 justify-content-center">
+            <!-- Imagen 1 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/rines/img-rines-1.png' %}" alt="Rines 1">
+                </div>
+            </div>
+            <!-- Imagen 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/rines/img-rines-2.png' %}" alt="Rines 2">
+                </div>
+            </div>
+            <!-- Imagen 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/rines/img-rines-3.png' %}" alt="Rines 3">
+                </div>
+            </div>
+            <!-- Imagen 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/rines/img-rines-4.png' %}" alt="Rines 4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sección 4: Restauración de Partes Plásticas -->
+<div class="container py-5">
+    <h2 class="text-center text-primary mb-4">Restauración de Partes Plásticas</h2>
+    <div class="text-center mb-4">
+        <h3>Renueva los plásticos de tu auto</h3>
+        <p>Nuestro servicio de <strong>Restauración de Partes Plásticas</strong> repara rayones, grietas y decoloración, devolviendo un aspecto como nuevo.</p>
+        
+        <!-- Galería de imágenes -->
+        <div class="row g-4 justify-content-center">
+            <!-- Imagen 1 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/plasticos/img-plasticos-1.png' %}" alt="Plásticos 1">
+                </div>
+            </div>
+            <!-- Imagen 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/plasticos/img-plasticos-2.png' %}" alt="Plásticos 2">
+                </div>
+            </div>
+            <!-- Imagen 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/plasticos/img-plasticos-3.png' %}" alt="Plásticos 3">
+                </div>
+            </div>
+            <!-- Imagen 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="image-container">
+                    <img class="img-fluid" src="{% static 'img/plasticos/img-plasticos-4.png' %}" alt="Plásticos 4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 {% endblock %}
+
 </html>
-
-
