@@ -4,19 +4,16 @@
 {% block title %}Pedido Confirmado{% endblock %} 
  
 {% block content %} 
-<link rel="stylesheet" href="{% static 'css/confirmacion.css' %}"> 
+<link rel="stylesheet" href="{% static 'tienda/confirmacion.css' %}"> 
 <div class="confirmacion-container"> 
     <div class="confirmacion-icon">✅</div> 
-    <h1 class="confirmacion-titulo">¡Pedido Confirmado!</h1> 
-     
+    <h1 class="confirmacion-titulo">¡Pedido Confirmado!</h1>      
     <div class="confirmacion-mensaje"> 
-        Gracias por tu compra. Hemos recibido tu pedido y te hemos enviado un 
-        correo electrónico con los detalles de confirmación. 
+        Gracias por tu compra. Hemos recibido tu pedido y te hemos enviado un correo electrónico con los detalles de confirmación. 
     </div> 
      
     <div class="confirmacion-detalles"> 
-        <h2 class="resumen-titulo">Detalles del Pedido #{{ orden.id }}</h2> 
-         
+        <h2 class="resumen-titulo">Detalles del Pedido #{{ orden.id }}</h2>          
         <div class="confirmacion-datos"> 
             <div> 
                 <div class="datos-titulo">Nombre:</div> 
@@ -36,7 +33,8 @@
             </div> 
             <div> 
                 <div class="datos-titulo">Método de Pago:</div> 
-                <div>{{ orden.get_metodo_pago_display }}</div>  
+                <div>{{ orden.get_metodo_pago_display }}</div>   
+ 
             </div> 
         </div> 
          
@@ -45,7 +43,7 @@
              
             {% for item in items %} 
             <div class="confirmacion-item"> 
-                <div>{{ item.cantidad }} x {{ item.servicios.nombre }}</div> 
+                <div>{{ item.cantidad }} x {{ item.producto.nombre }}</div> 
                 <div>${{ item.subtotal }}</div> 
             </div> 
             {% endfor %} 
@@ -56,11 +54,11 @@
         </div> 
     </div> 
     <div class="confirmacion-acciones"> 
-        <a href="{% url 'servicios' %}" class="btn btn-success"> 
+        <a href="{% url 'productos' %}" class="btn btn-success"> 
             Continuar Comprando 
         </a> 
     </div> 
      
     <div class="confirmacion-acc 
  
-{% endblock %} 
+{% endblock %}

@@ -25,9 +25,6 @@ def base (request):
 def index (request):
     return render(request,'index.html')
 
-def servicios (request):
-    return render(request,'servicios.html')
-
 def nosotros (request):
     return render(request, 'nosotros.html')
 
@@ -195,129 +192,228 @@ from .models import Orden, OrdenItem, CarritoItem
 from .forms import OrdenForm 
  
 
-def pasarela(request): 
-    carrito_items = [] 
-    total = 0 
-     
-    # Obtener los productos del carrito según el usuario o sesión 
-    if request.user.is_authenticated: 
-            carrito_items = CarritoItem.objects.filter(usuario=request.user) 
-    else: 
-        if request.session.session_key: 
-            carrito_items = CarritoItem.objects.filter(sesion_id=request.session.session_key) 
-     
-    # Si el carrito está vacío, mostrar advertencia 
-    if not carrito_items: 
-        messages.warning(request, "Tu carrito está vacío") 
-        return redirect('ver_carrito') 
-     
-    # Calcular el total del pedido 
-    for item in carrito_items: 
-        total += item.subtotal() 
-     
-    if request.method == 'POST': 
-        form = OrdenForm(request.POST) 
-        metodo_pago = request.POST.get('metodo_pago')   
-         
-        if form.is_valid() and metodo_pago:   
-            orden = form.save(commit=False) 
-             
-            if request.user.is_authenticated: 
-                orden.usuario = request.user 
-            else: 
-                orden.sesion_id = request.session.session_key 
-             
-            orden.total = total 
-            orden.metodo_pago = metodo_pago   
-            orden.save() 
-             
-            # Guardar los productos en la orden 
-            for item in carrito_items: 
-                OrdenItem.objects.create( 
-                    orden=orden, 
-                    servicios=item.servicios, 
-                    precio=item.servicios.precio, 
-                    cantidad=item.cantidad 
-                ) 
-             
-            # Vaciar el carrito después del pago 
-            carrito_items.delete() 
-                        # 📧 Enviar el correo de confirmación 
-            enviar_correo_confirmacion(orden) 
- 
-            messages.success(request, "Tu pedido ha sido procesado con éxito") 
-            return redirect('confirmar', orden_id=orden.id) 
-        else: 
-            messages.error(request, "Por favor selecciona un método de pago válido.") 
-    else: 
-        # Precargar los datos del usuario en el formulario 
-        initial_data = {} 
-        if request.user.is_authenticated: 
-            try: 
-                datos = datos.objects.get(usuario=request.user) 
-                initial_data = { 
-                    'nombre': f"{datos.nombre} {datos.apellido}", 
-                    'email': request.user.email 
-                } 
-            except datos.DoesNotExist: 
-                initial_data = { 
-                    'nombre': request.user.username, 
-                    'email': request.user.email 
-                } 
-         
-        form = OrdenForm(initial=initial_data) 
-     
-    return render(request, 'pasarela.html', { 
-        'form': form, 
-        'carrito_items': carrito_items, 
-        'total': total 
-    }) 
- 
-def confirmacion(request, orden_id): 
-    try: 
-        if request.user.is_authenticated: 
-            orden = Orden.objects.get(id=orden_id, usuario=request.user) 
-        else: 
-            orden = Orden.objects.get(id=orden_id, 
-            sesion_id=request.session.session_key) 
-         
-        items = OrdenItem.objects.filter(orden=orden) 
-         
+#vista de pasarela de compras
+
+from .models import Orden, OrdenItem, CarritoItem 
+from .forms import OrdenForm
+
+
+def pasarela(request):
+    carrito_items = []
+    total = 0
+
+    # Obtener los productos del carrito según el usuario o sesión
+    if request.user.is_authenticated:
+        carrito_items = CarritoItem.objects.filter(usuario=request.user)
+    else:
+        if request.session.session_key:
+            carrito_items = CarritoItem.objects.filter(sesion_id=request.session.session_key)
+
+    # Si el carrito está vacío, mostrar advertencia
+    if not carrito_items:
+        messages.warning(request, "Tu carrito está vacío")
+        return redirect('ver_carrito')
+
+    # Calcular el total del pedido
+    for item in carrito_items:
+        total += item.subtotal()
+
+    if request.method == 'POST':
+        form = OrdenForm(request.POST)
+        metodo_pago = request.POST.get('metodo_pago')
+
+        if form.is_valid() and metodo_pago:
+            orden = form.save(commit=False)
+
+            if request.user.is_authenticated:
+                orden.usuario = request.user
+            else:
+                orden.sesion_id = request.session.session_key
+
+            orden.total = total
+            orden.metodo_pago = metodo_pago
+            orden.save()
+
+            # Guardar los productos en la orden
+            for item in carrito_items:
+                OrdenItem.objects.create(
+                    orden=orden,
+                    producto=item.producto,
+                    precio=item.producto.precio,
+                    cantidad=item.cantidad
+                )
+
+            # Vaciar el carrito después del pago
+            carrito_items.delete()
+
+            # 📧 Enviar el correo de confirmación
+            enviar_correo_confirmacion(orden)
+
+            messages.success(request, "Tu pedido ha sido procesado con éxito")
+            return redirect('confirmar', orden_id=orden.id)
+        else:
+            messages.error(request, "Por favor selecciona un método de pago válido.")
+    else:
+        # Precargar los datos del usuario en el formulario
+        initial_data = {}
+        if request.user.is_authenticated:
+            try:
+                datos = Datos.objects.get(usuario=request.user)
+                initial_data = {
+                    'nombre': f"{datos.nombre} {datos.apellido}",
+                    'email': request.user.email
+                }
+            except Datos.DoesNotExist:
+                initial_data = {
+                    'nombre': request.user.username,
+                    'email': request.user.email
+                }
+
+        form = OrdenForm(initial=initial_data)
+
+    return render(request, 'pasarela.html', {
+        'form': form,
+        'carrito_items': carrito_items,
+        'total': total
+    })
+
+
+def confirmacion(request, orden_id):
+    try:
+        if request.user.is_authenticated:
+            orden = Orden.objects.get(id=orden_id, usuario=request.user)
+        else:
+            orden = Orden.objects.get(id=orden_id, sesion_id=request.session.session_key)
+
+        items = OrdenItem.objects.filter(orden=orden)
+
         return render(request, 'confirmacion.html', {
-                        'orden': orden, 
-            'items': items 
-        }) 
-    except Orden.DoesNotExist: 
-        messages.error(request, "Orden no encontrada") 
-        return redirect('servicios') 
-     
-def enviar_correo_confirmacion(orden): 
-    """ Envía un correo de confirmación al cliente """ 
-    asunto = f"Confirmación de Pedido #{orden.id}" 
-    mensaje = f""" 
-    Hola {orden.nombre}, 
- 
-    Gracias por tu compra. Hemos recibido verificar la compra en su cuenta . 
- 
-    🛍 **Detalles del Pedido** 
-    - Número de Pedido: {orden.id} 
-    - Total: ${orden.total} 
-    - Método de Pago: {orden.get_metodo_pago_display()} 
-    - Fecha: {orden.fecha_creacion.strftime('%d/%m/%Y %H:%M')} 
- 
-    📦 **Productos Comprados**: 
-    """ 
-     
-    # Agregar productos al mensaje 
-    items = OrdenItem.objects.filter(orden=orden) 
-    for item in items: 
-        mensaje += f"\n    - {item.cantidad} x {item.servicios.nombre} (${item.precio} c/u)" 
- 
-    mensaje += "\n\nGracias por confiar en nosotros. 😊\n\nSaludos,\nTu tienda online" 
- 
-    send_mail( 
-        asunto, 
-        mensaje, 
-        'lizreina0126@gmail.com',  # Correo del remitente 
-        [orden.email], fail_silently=False, 
-    ) 
+            'orden': orden,
+            'items': items
+        })
+
+    except Orden.DoesNotExist:
+        messages.error(request, "Orden no encontrada")
+        return redirect('productos')
+
+
+def enviar_correo_confirmacion(orden):
+    """ Envía un correo de confirmación al cliente """
+    asunto = f"Confirmación de Pedido #{orden.id}"
+    mensaje = f"""
+    Hola {orden.nombre},
+
+    Gracias por tu compra. Hemos recibido tu pedido y estamos verificando el pago.
+
+    🛍 *Detalles del Pedido*
+    - Número de Pedido: {orden.id}
+    - Total: ${orden.total}
+    - Método de Pago: {orden.get_metodo_pago_display()}
+    - Fecha: {orden.fecha_creacion.strftime('%d/%m/%Y %H:%M')}
+
+    📦 *Productos Comprados*:
+    """
+
+
+
+#carrito
+
+
+from .models import Productos, CarritoItem  # Correcto
+
+def productos(request):
+    producto_lista = Productos.objects.all()
+
+    if request.method == "POST" and 'producto_id' in request.POST:
+        producto_id = request.POST.get('producto_id')
+        try:
+            producto = Productos.objects.get(id=producto_id)
+            
+            if not request.user.is_authenticated:
+                if not request.session.session_key:
+                    request.session.create()
+                sesion_id = request.session.session_key
+                
+                carrito_item, created = CarritoItem.objects.get_or_create(
+                    producto=producto,
+                    sesion_id=sesion_id,
+                    usuario=None
+                )
+                
+                if not created:
+                    carrito_item.cantidad += 1
+                    carrito_item.save()
+            else:
+                carrito_item, created = CarritoItem.objects.get_or_create(
+                    producto=producto,
+                    usuario=request.user,
+                    sesion_id=None
+                )
+                
+                if not created:
+                    carrito_item.cantidad += 1
+                    carrito_item.save()
+            
+            messages.success(request, f"{producto.nombre} añadido al carrito")
+        except Productos.DoesNotExist:
+            messages.error(request, "Producto no encontrado")
+    
+    return render(request, 'productos.html', {'productos': producto_lista})
+
+def ver_carrito(request):
+    carrito_items = []
+    total = 0
+    
+    if request.user.is_authenticated:
+        carrito_items = CarritoItem.objects.filter(usuario=request.user)
+    else:
+        if request.session.session_key:
+            carrito_items = CarritoItem.objects.filter(sesion_id=request.session.session_key)
+    
+    for item in carrito_items:
+        total += item.subtotal()
+    
+    return render(request, 'carrito.html', {
+        'carrito_items': carrito_items,
+        'total': total
+    })
+
+def actualizar_carrito(request, item_id):
+    try:
+        item = CarritoItem.objects.get(id=item_id)
+        
+        if request.user.is_authenticated and item.usuario == request.user or \
+            not request.user.is_authenticated and item.sesion_id == request.session.session_key:
+            
+            cantidad = int(request.POST.get('cantidad', 1))
+            if cantidad > 0:
+                item.cantidad = cantidad
+                item.save()
+            else:
+                item.delete()
+            
+            messages.success(request, "Carrito actualizado")
+        else:
+            messages.error(request, "No tienes permiso para modificar este item")
+    except CarritoItem.DoesNotExist:
+        messages.error(request, "Item no encontrado")
+        
+    return redirect('ver_carrito')
+
+def eliminar_item(request, item_id):
+    try:
+        item = CarritoItem.objects.get(id=item_id)
+        
+        if request.user.is_authenticated and item.usuario == request.user or \
+            not request.user.is_authenticated and item.sesion_id == request.session.session_key:
+            
+            item.delete()
+            messages.success(request, "Item eliminado del carrito")
+        else:
+            messages.error(request, "No tienes permiso para eliminar este item")
+    except CarritoItem.DoesNotExist:
+        messages.error(request, "Item no encontrado")
+        
+    return redirect('ver_carrito')
+
+

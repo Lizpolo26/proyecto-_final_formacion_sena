@@ -22,8 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='base'),
     path('index/', views.index, name='index'),
-    path('servicios/', views.servicios, name='servicios'),
     path('nosotros/', views.nosotros, name='nosotros'),
+    path('productos/', views.productos, name='productos'),
     path('contactanos/', views.contactanos, name='contactanos'),  # Página de contacto
     path('enviar-correo/', views.enviar_correo, name='enviar_correo'),  # Nueva URL para enviar el correo
     path('ingreso/', views.ingreso, name='ingreso'),
@@ -35,6 +35,10 @@ urlpatterns = [
     path('logout/', views.cerrar_sesion, name='logout'),
     path('pasarela/', views.pasarela, name='pasarela'), 
     path('confirmac/<int:orden_id>/', views.confirmacion, name='confirmar'), 
+    # Carrito de compras
+    path('carrito/', views.ver_carrito, name='ver_carrito'),
+    path('carrito/actualizar/<int:item_id>/', views.actualizar_carrito, name='actualizar_carrito'),
+    path('carrito/eliminar/<int:item_id>/', views.eliminar_item, name='eliminar_item'),
 ]
 
 
