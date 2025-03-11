@@ -108,3 +108,13 @@
     
 })(jQuery);
 
+
+function toggleCart() {
+    // Lógica para mostrar/ocultar el carrito de compras
+    const cart = document.getElementById('cart');
+    if (cart.style.display === 'none' || cart.style.display === '') {
+        cart.style.display = 'block';
+    } else {
+        cart.style.display = 'none';
+    }
+}

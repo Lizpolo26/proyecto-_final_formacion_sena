@@ -52,6 +52,12 @@
                     <a style="text-transform: capitalize;" href="{% url 'nosotros' %}" class="nav-item nav-link">Sobre nosotros</a>
                     <a style="text-transform: capitalize;" href="{% url 'contactanos' %}" class="nav-item nav-link">Contactanos</a>
 
+
+                    
+                    <!-- Barra de navegación con ícono de carrito -->
+                    <a href="{% url 'ver_carrito' %}"><i class="bi bi-cart4 fs-3"></i></a>
+                    
+
                     {% if user.is_authenticated %}
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i

@@ -258,12 +258,12 @@ def pasarela(request):
         initial_data = {}
         if request.user.is_authenticated:
             try:
-                datos = Datos.objects.get(usuario=request.user)
+                datos = datos.objects.get(usuario=request.user)
                 initial_data = {
                     'nombre': f"{datos.nombre} {datos.apellido}",
                     'email': request.user.email
                 }
-            except Datos.DoesNotExist:
+            except datos.DoesNotExist:
                 initial_data = {
                     'nombre': request.user.username,
                     'email': request.user.email
@@ -318,8 +318,7 @@ def enviar_correo_confirmacion(orden):
 
 #carrito
 
-
-from .models import Productos, CarritoItem  # Correcto
+from .models import Productos, CarritoItem  
 
 def productos(request):
     producto_lista = Productos.objects.all()
@@ -335,7 +334,7 @@ def productos(request):
                 sesion_id = request.session.session_key
                 
                 carrito_item, created = CarritoItem.objects.get_or_create(
-                    producto=producto,
+                    producto=producto_id,
                     sesion_id=sesion_id,
                     usuario=None
                 )

@@ -8,7 +8,8 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'carrito.css' %}">
+<!-- <link rel="stylesheet" href="/paintworks/static/css/carrito.css"> -->
+
 <div class="carrito-container">
     <h1 class="carrito-titulo">Tu Carrito de Compras</h1>
     
@@ -40,7 +41,6 @@
                         <td>
                             <div class="producto-info">
                                 <img src="{{ item.producto.foto.url }}" alt="{{ item.producto.nombre }}" class="producto-imagen">
-                                <span>{{ item.producto.nombre }}</span>
                             </div>
                         </td>
                         <td>${{ item.producto.precio }}</td>

@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from paintworks import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,12 +35,13 @@ urlpatterns = [
     path('confirmacion_contrasena/', views.confirmacion_contrasena, name='confirmacion_contrasena'),            
     path('perfil/', views.perfil, name='perfil'),
     path('logout/', views.cerrar_sesion, name='logout'),
+    # Pasarela
     path('pasarela/', views.pasarela, name='pasarela'), 
-    path('confirmac/<int:orden_id>/', views.confirmacion, name='confirmar'), 
+    path('confirmar/<int:orden_id>/', views.confirmacion, name='confirmar'), 
     # Carrito de compras
     path('carrito/', views.ver_carrito, name='ver_carrito'),
     path('carrito/actualizar/<int:item_id>/', views.actualizar_carrito, name='actualizar_carrito'),
     path('carrito/eliminar/<int:item_id>/', views.eliminar_item, name='eliminar_item'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

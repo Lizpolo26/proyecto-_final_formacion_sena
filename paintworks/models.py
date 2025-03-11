@@ -14,10 +14,10 @@ class Productos(models.Model):
 
 
 #carrito
-from django.utils import timezone
+    
 class CarritoItem(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    producto = models.ForeignKey(Productos, on_delete=models.CASCADE)
+    producto= models.ForeignKey(Productos, on_delete=models.CASCADE)
     cantidad = models.IntegerField(default=1)
     sesion_id = models.CharField(max_length=100, null=True, blank=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
