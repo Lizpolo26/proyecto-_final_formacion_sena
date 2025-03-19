@@ -194,8 +194,7 @@ from .forms import OrdenForm
 
 #vista de pasarela de compras
 
-from .models import Orden, OrdenItem, CarritoItem 
-from .forms import OrdenForm
+from .models import Datos
 
 
 def pasarela(request):
@@ -258,12 +257,12 @@ def pasarela(request):
         initial_data = {}
         if request.user.is_authenticated:
             try:
-                datos = datos.objects.get(usuario=request.user)
+                Datos = Datos.objects.get(usuario=request.user)
                 initial_data = {
-                    'nombre': f"{datos.nombre} {datos.apellido}",
+                    'nombre': f"{Datos.nombre} {Datos.apellido}",
                     'email': request.user.email
                 }
-            except datos.DoesNotExist:
+            except Datos.DoesNotExist:
                 initial_data = {
                     'nombre': request.user.username,
                     'email': request.user.email

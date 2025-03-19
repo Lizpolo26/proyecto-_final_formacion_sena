@@ -4,7 +4,7 @@
 {% block title %}Finalizar Compra{% endblock %} 
  
 {% block content %} 
-<link rel="stylesheet" href="{% static pasarela.css' %}">  
+<link rel="stylesheet" href="{% static 'pasarela.css' %}">  
 <div class="checkout-container"> 
     <h1 class="checkout-titulo">Finalizar Compra</h1>      
     {% if messages %} 
@@ -73,7 +73,7 @@
             {% for item in carrito_items %} 
             <div class="resumen-item"> 
                 <div class="resumen-producto"> 
-                    <img src="{{ item.producto.foto.url }}" alt="{{ item.producto.nombre }}" class="resumen-imagen"> 
+                    <img src="{{ item.producto.imagen.url }}" alt="{{ item.producto.nombre }}" class="resumen-imagen"> 
                     <div> 
                         <div>{{ item.producto.nombre }}</div> 
                         <div>Cantidad: {{ item.cantidad }}</div> 

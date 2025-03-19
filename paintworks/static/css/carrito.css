@@ -50,7 +50,7 @@
     border-radius: 4px;
 }
 
-.btn {
+.container_eliminar{
     padding: 8px 24px;
     font-size: 0.9rem;
     font-weight: 500;
@@ -62,24 +62,24 @@
     text-align: center;
 }
 
-.btn-outline {
+.container_eliminar-outline {
     background-color: transparent;
     border: 1px solid var(--acento);
     color: var(--acento);
 }
 
-.btn-outline:hover {
+.container_eliminar-outline:hover {
     background-color: var(--acento);
     color: white;
 }
 
-.btn-danger {
+.container_eliminar-danger {
     background-color: #dc3545;
     color: white;
     border: 1px solid #dc3545;
 }
 
-.btn-danger:hover {
+.container_eliminar-danger:hover {
     background-color: #bb2d3b;
 }
 
@@ -195,7 +195,7 @@
         gap: 1rem;
     }
     
-    .carrito-acciones .btn {
+    .carrito-acciones .container_eliminar {
         width: 100%;
     }
 }

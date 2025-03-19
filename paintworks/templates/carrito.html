@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<!-- <link rel="stylesheet" href="/paintworks/static/css/carrito.css"> -->
+<link rel="stylesheet" href="/paintworks/static/css/carrito.css">
 
 <div class="carrito-container">
     <h1 class="carrito-titulo">Tu Carrito de Compras</h1>
@@ -40,7 +40,7 @@
                     <tr>
                         <td>
                             <div class="producto-info">
-                                <img src="{{ item.producto.foto.url }}" alt="{{ item.producto.nombre }}" class="producto-imagen">
+                                <img src="{{ item.producto.imagen.url }}" alt="{{ item.producto.nombre }}" class="producto-imagen">
                             </div>
                         </td>
                         <td>${{ item.producto.precio }}</td>
@@ -55,9 +55,11 @@
                         </td>
                         <td>${{ item.subtotal }}</td>
                         <td>
-                            <a href="{% url 'eliminar_item' item.id %}" class="btn btn-danger btn-sm">
-                                Eliminar
-                            </a>
+                            <div class="Container_eliminar">
+                                <a href="{% url 'eliminar_item' item.id %}" class="btn btn-danger btn-sm">
+                                    Eliminar
+                                </a>
+                            </div>
                             <a href="{% url 'pasarela' %}" class="btn btn-success">
                                 <button>comprar</button>
                             </a>
