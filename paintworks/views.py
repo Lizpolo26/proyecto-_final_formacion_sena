@@ -194,8 +194,10 @@ from .forms import OrdenForm
 
 #vista de pasarela de compras
 
-from .models import Datos
-
+from .models import Datos, CarritoItem, OrdenItem
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from .forms import OrdenForm
 
 def pasarela(request):
     carrito_items = []
@@ -257,9 +259,9 @@ def pasarela(request):
         initial_data = {}
         if request.user.is_authenticated:
             try:
-                Datos = Datos.objects.get(usuario=request.user)
+                datos_usuario = Datos.objects.get(usuario=request.user)
                 initial_data = {
-                    'nombre': f"{Datos.nombre} {Datos.apellido}",
+                    'nombre': f"{datos_usuario.nombre} {datos_usuario.apellido}",
                     'email': request.user.email
                 }
             except Datos.DoesNotExist:
@@ -406,11 +408,11 @@ def eliminar_item(request, item_id):
             not request.user.is_authenticated and item.sesion_id == request.session.session_key:
             
             item.delete()
-            messages.success(request, "Item eliminado del carrito")
+            messages.success(request, "Servicio eliminado del carrito")
         else:
             messages.error(request, "No tienes permiso para eliminar este item")
     except CarritoItem.DoesNotExist:
-        messages.error(request, "Item no encontrado")
+        messages.error(request, "Servicio no encontrado")
         
     return redirect('ver_carrito')
 
