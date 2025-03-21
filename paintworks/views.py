@@ -292,6 +292,8 @@ def confirmacion(request, orden_id):
             'orden': orden,
             'items': items
         })
+    
+
 
     except Orden.DoesNotExist:
         messages.error(request, "Orden no encontrada")
@@ -315,6 +317,27 @@ def enviar_correo_confirmacion(orden):
     📦 *Productos Comprados*:
     """
 
+    # Agregar productos al mensaje
+    items = OrdenItem.objects.filter(orden=orden)
+    for item in items:
+        mensaje += f"\n - {item.cantidad} x {item.producto.nombre}(${item.precio} c/u)"
+
+        mensaje += "\n\nGracias por confiar en nosotros. �\n\nSaludos,\nTu tienda online"
+
+
+    send_mail(
+    asunto,
+    mensaje,
+    'lizreina0126@gmail.com', # Correo del remitente
+    [orden.email],
+    fail_silently=False,
+    )
+    
+
+
+
+    
+    
 
 
 #carrito
