@@ -48,12 +48,12 @@ class Orden(models.Model):
 
 class OrdenItem(models.Model):
     orden = models.ForeignKey(Orden, related_name='items', on_delete=models.CASCADE)
-    productos = models.ForeignKey("Productos", on_delete=models.CASCADE)
+    producto = models.ForeignKey(Productos, on_delete=models.CASCADE)
     precio = models.DecimalField(max_digits=10, decimal_places=0)
     cantidad = models.IntegerField(default=1)
 
     def _str_(self):
-        return f"{self.cantidad} x {self.productos.nombre}"
+        return f"{self.cantidad} x {self.producto.nombre}"
 
     def subtotal(self): 
         return self.precio * self.cantidad

@@ -1,17 +1,17 @@
 {% extends 'base.html' %} 
 {% load static %} 
- 
+
 {% block title %}Pedido Confirmado{% endblock %} 
- 
+
 {% block content %} 
-<link rel="stylesheet" href="{% static '/paintworks/confirmacion.css' %}"> 
+<link rel="stylesheet" href="/paintworks/static/css/confirmacion.css">
 <div class="confirmacion-container"> 
     <div class="confirmacion-icon">✅</div> 
     <h1 class="confirmacion-titulo">¡Pedido Confirmado!</h1>      
     <div class="confirmacion-mensaje"> 
         Gracias por tu compra. Hemos recibido tu pedido y te hemos enviado un correo electrónico con los detalles de confirmación. 
     </div> 
-     
+    
     <div class="confirmacion-detalles"> 
         <h2 class="resumen-titulo">Detalles del Pedido #{{ orden.id }}</h2>          
         <div class="confirmacion-datos"> 
@@ -34,20 +34,20 @@
             <div> 
                 <div class="datos-titulo">Método de Pago:</div> 
                 <div>{{ orden.get_metodo_pago_display }}</div>   
- 
+
             </div> 
         </div> 
-         
+        
         <div class="confirmacion-items"> 
             <div class="datos-titulo">Productos:</div> 
-             
+            
             {% for item in items %} 
             <div class="confirmacion-item"> 
                 <div>{{ item.cantidad }} x {{ item.producto.nombre }}</div> 
                 <div>${{ item.subtotal }}</div> 
             </div> 
             {% endfor %} 
-             
+            
             <div class="confirmacion-total"> 
                 Total: ${{ orden.total }} 
             </div> 
@@ -58,7 +58,6 @@
             Continuar Comprando 
         </a> 
     </div> 
-     
-    <div class="confirmacion-acc 
- 
+    
+
 {% endblock %}
