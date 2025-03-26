@@ -64,22 +64,13 @@ class Datos(models.Model):
 
 
 
+class Reserva(models.Model):
+    nombre = models.CharField(max_length=100)
+    email = models.EmailField()
+    telefono = models.CharField(max_length=15)
+    fecha = models.DateField()
+    hora = models.TimeField()
 
 
-
-
-
-
-
-
-
-# class Reserva(models.Model):
-#     nombre = models.CharField(max_length=100)
-#     email = models.EmailField()
-#     telefono = models.CharField(max_length=15)
-#     fecha = models.DateField()
-#     hora = models.TimeField()
-
-#     def _str_(self):
-#         return f"{self.nombre} - {self.fecha} {self.hora}"
-
+    def _str_(self):
+        return f"{self.nombre} - {self.fecha} {self.hora}"

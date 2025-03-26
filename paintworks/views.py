@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
@@ -440,3 +441,68 @@ def eliminar_item(request, item_id):
     return redirect('ver_carrito')
 
 
+
+
+
+#Reservas 
+def reservas(request):
+    
+    if request.method == "POST":
+        nombre = request.POST.get("Nombre")
+        email = request.POST.get("Email")
+        telefono = request.POST.get("Telefono")
+        fecha = request.POST.get("Fecha")
+        hora = request.POST.get("Hora")
+        
+        try:
+            fecha_reserva = datetime.strptime(fecha, "%Y-%m-%").date()
+            hora_reserva = datetime.strptime(hora, "%H:%M").time()
+        except ValueError:
+            messages.error(request, "Formato incorrecto de fecha u hora.")
+            return redirect("reservas")
+        
+        # Validar que la fecha no sea pasada
+        if fecha_reserva < datetime.now().date():
+            messages.error(request, "No puedes seleccionar una fecha pasada.")
+            return redirect("reservas")
+        
+        # Validar que la hora esté en el rango permitido
+        if not (datetime.strptime("17:00", "%H:%M").time() <= hora_reserva <= datetime.strptime("23:00", "%H:%M").time()):
+            messages.error(request, "La hora debe estar entre las 17:00 y las 23:00.")
+            return redirect("reservas")
+                        
+        # Crear la reserva
+
+        reserva = reserva.objects.create(
+            nombre=nombre, email=email, telefono=telefono,
+            fecha=fecha_reserva, hora=hora_reserva
+        )
+        
+        # Enviar correos
+        mensaje_usuario = f"""
+        Hola {nombre},
+        
+        Tu reserva ha sido confirmada:
+        📅 Fecha: {fecha}
+        ⏰ Hora: {hora}
+        
+        Si necesitas cancelar o modificar tu reserva, contáctanos.
+        ¡Gracias por elegirnos!
+        """
+        enviar_correo(email, "Confirmación de Reserva - Paint_Works", mensaje_usuario)
+        
+        mensaje_admin = f"""
+        📌 Nueva reserva recibida:
+        
+        Cliente: {nombre}
+        📧 Correo: {email}
+        📞 Teléfono: {telefono}
+        📅 Fecha: {fecha}
+        ⏰ Hora: {hora}
+        """
+        enviar_correo("lizreina0126@gmail.com", "Nueva Reserva Recibida", mensaje_admin)
+        
+        messages.success(request, "¡Tu reserva fue realizada con éxito! Se ha enviado un correo con los detalles.")
+        return redirect("reservas")
+    
+    return render(request, "reservas.html")
