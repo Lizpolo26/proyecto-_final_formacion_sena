@@ -142,6 +142,112 @@
     }
 }
 
+.profile-header {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dc3545;
+    padding: 1.5rem;
+}
+.profile-title {
+    color: #dc3545;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.welcome-message {
+    font-size: 1.1rem;
+    color: #495057;
+}
+.user-details {
+    padding: 1rem 0;
+}
+.user-detail-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+.detail-label {
+    font-weight: 600;
+    color: #dc3545;
+    margin-bottom: 0.3rem;
+}
+.detail-value {
+    color: #495057;
+}
+.section-title {
+    color: #dc3545;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+.order-status {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+.status-shipped {
+    background-color: #cce5ff;
+    color: #004085;
+}
+.status-delivered {
+    background-color: #d4edda;
+    color: #155724;
+}
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.download-link {
+    color: #dc3545;
+    text-decoration: none;
+}
+.download-link:hover {
+    text-decoration: underline;
+}
+.logout-btn-compact {
+    padding: 0.15rem 0.5rem !important;  /* Espacio mínimo interior */
+    font-size: 0.8rem !important;         /* Tamaño de letra pequeño */
+    height: auto !important;              /* Altura automática */
+    line-height: 1.2 !important;          /* Espaciado entre líneas */
+    border-width: 1px !important;         /* Borde fino */
+    display: inline-flex !important;      /* Para alinear ícono y texto */
+    align-items: center !important;       /* Centrar verticalmente */
+    justify-content: center !important;   /* Centrar horizontalmente */
+    margin-top: 2rem !important;          /* Margen superior */
+    width: auto !important;               /* Ancho según contenido */
+}
+
+/* Ajuste para el ícono dentro del botón */
+.logout-btn-compact i {
+    margin-right: 0.3rem !important;      /* Espacio entre ícono y texto */
+    font-size: 0.9rem !important;         /* Tamaño del ícono */
+}
+
+/* Efecto hover */
+.logout-btn-compact:hover {
+    transform: scale(1.02) !important;    /* Ligero aumento al pasar mouse */
+}
+.whatsapp-chat-btn {
+    background-color: #25D366; /* Color verde WhatsApp */
+    color: white;
+    border: none;
+}
+.whatsapp-chat-btn:hover {
+    background-color: #128C7E; /* Verde más oscuro al hover */
+}
+.chat-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+.chat-btn:hover {
+    background-color: #218838;
+}
 
 /*** Header ***/
 .carousel-caption {
