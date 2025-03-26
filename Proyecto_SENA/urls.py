@@ -27,6 +27,7 @@ urlpatterns = [
     path('nosotros/', views.nosotros, name='nosotros'),
     path('productos/', views.productos, name='productos'),
     path('contactanos/', views.contactanos, name='contactanos'),  # Página de contacto
+    path('reservas/', views.reservas, name='reservas'),  #Reservas
     path('enviar-correo/', views.enviar_correo, name='enviar_correo'),  # Nueva URL para enviar el correo
     path('ingreso/', views.ingreso, name='ingreso'),
     path('registro/', views.registro, name='registro'),

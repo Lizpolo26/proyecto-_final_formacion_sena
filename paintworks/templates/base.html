@@ -49,15 +49,14 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a style="text-transform: capitalize;" href="{% url 'index' %}"
-                        class="nav-item nav-link active">Inicio</a>
-                    <a style="text-transform: capitalize;" href="{% url 'productos' %}"
-                        class="nav-item nav-link">Servicios</a>
-                    <a style="text-transform: capitalize;" href="{% url 'nosotros' %}" class="nav-item nav-link">Sobre
-                        nosotros</a>
-                    <a style="text-transform: capitalize;" href="{% url 'contactanos' %}"
-                        class="nav-item nav-link">Contactanos</a>
+
+                <div class="navbar-nav ms-auto p-4 p-lg-1">
+                    <a style="text-transform: capitalize;" href="{% url 'index' %}" class="nav-item nav-link">Inicio</a>
+                    <a style="text-transform: capitalize;" href="{% url 'productos' %}" class="nav-item nav-link">Servicios</a>
+                    <a style="text-transform: capitalize;" href="{% url 'nosotros' %}" class="nav-item nav-link">Sobre nosotros</a>
+                    <a style="text-transform: capitalize;" href="{% url 'reservas' %}" class="nav-item nav-link">Reservas</a>
+                    <a style="text-transform: capitalize;" href="{% url 'contactanos' %}" class="nav-item nav-link">Contactanos</a>
+
 
                     <a href="{% url 'ver_carrito' %}" class="nav-link"><i class="bi bi-cart4 fs-5"></i></a>
 
